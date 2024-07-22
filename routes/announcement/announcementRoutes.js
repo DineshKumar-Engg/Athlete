@@ -1,0 +1,11 @@
+const express = require("express");
+const router = express.Router();
+const auth = require("../../utills/auth");
+const { addAnnounceMent, removeAnnounceMent, updateAnnounceMent, getAllAnnounceMent, getAnnounceMent, getMobileAnnounceMent } = require("../../controllers/announcement/announcementControllers");
+router.post("/addannouncement", auth.authorization, addAnnounceMent);
+router.post("/removeannouncement/:id", auth.authorization, removeAnnounceMent);
+router.post("/updateannouncement", auth.authorization, updateAnnounceMent);
+router.get("/getallannouncement/:roleId", auth.authorization, getAllAnnounceMent);
+router.get("/getannouncement/:id", auth.authorization, getAnnounceMent);
+router.get("/getmobileannouncement/:roleId", auth.authorization, getMobileAnnounceMent);
+module.exports = router;
